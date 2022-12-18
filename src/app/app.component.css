@@ -1,0 +1,18 @@
+#icon-align{
+  
+    position: fixed;
+    bottom: 65px;
+    right: 50px;
+  
+}
+
+#effects:hover {
+    background: #acdef1;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .scroller {
+    height: 96%;
+    width: 100%;
+}

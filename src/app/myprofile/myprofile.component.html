@@ -1,0 +1,37 @@
+<div style="padding-top: 6%;padding-left: 20%;padding-right: 20%;">
+    <div style="padding-left: 49%;padding-bottom: 2%;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+    </div>
+<table class="table table-striped" *ngIf="userDetails">
+    <tbody>
+      <tr>
+        <td class="key">User Id</td>
+        <td>{{userDetails['userId']}}</td>
+      </tr>
+      <tr>
+        <td class="key">First Name</td>
+        <td>{{userDetails['firstName']}}</td>
+      </tr>
+      <tr>
+        <td class="key">Last Name</td>
+        <td>{{userDetails['lastName']}}</td>
+      </tr>
+      <tr>
+        <td class="key">Email Id</td>
+        <td>{{userDetails['emailId']}}</td>
+      </tr>
+      <tr>
+        <td class="key">Phone Number</td>
+        <td>{{userDetails['contactNumber']}}</td>
+      </tr>
+      <tr>
+        <td class="key">Password Change</td>
+        <td><button class="btn btn-danger" routerLink="/resetPassword">Change Password</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

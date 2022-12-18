@@ -1,0 +1,33 @@
+
+
+
+#cssTable td 
+{
+    text-align: center; 
+    vertical-align: middle;
+}
+
+#reply:hover {
+    background: #f2f3ff;
+    outline: none;
+    cursor: pointer;
+  }
+  
+#reply {
+    border: 2px solid #ccd2ff;
+    position: relative;
+   
+  }  
+
+  #link:hover {
+    background: #f2f3ff;
+    outline: none;
+    cursor: pointer;
+  }
+  
+#link {
+    border: 2px solid #ccd2ff;
+    position: relative;
+    
+  }  
+

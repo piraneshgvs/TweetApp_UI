@@ -1,0 +1,119 @@
+<div class="col-md-6 offset-md-3" style="padding-top: 8%;">
+    <h3 style="text-align: center; font-size: 50px; padding-top: 10px;"> Register Form </h3>
+    <h5 style="text-align: center; color: red;font-size: 25px;">{{errorMessage}}</h5>
+    <form [formGroup]="forGrp!">
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">userId : </label>
+            <input class="form-control" id="userId" formControlName="userId" name="name" style="padding-bottom: 10px"
+                placeholder="Create your userId" required />
+        </div>
+        <div *ngIf="forGrp.controls['userId'].invalid && (forGrp.controls['userId'].dirty || forGrp.controls['userId'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="forGrp.controls['userId'].errors?.['required']">
+                User ID is required
+            </div>
+            <div *ngIf="forGrp.controls['userId'].errors?.['minlength']">
+                UserName should have atleast 4 Characters
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">First Name : </label>
+            <input class="form-control" id="firstName" formControlName="firstName" name="userName"
+                style="padding-bottom: 10px" placeholder="Enter your First Name" required />
+        </div>
+        <div *ngIf="forGrp.controls['firstName'].invalid && (forGrp.controls['firstName'].dirty || forGrp.controls['firstName'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="forGrp.controls['firstName'].errors?.['required']">
+                First Name is required
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">Last Name : </label>
+            <input class="form-control" id="lastName" formControlName="lastName" name="lastName"
+                style="padding-bottom: 10px" placeholder="Enter your LastName" required />
+        </div>
+        <div *ngIf="forGrp.controls['lastName'].invalid && (forGrp.controls['lastName'].dirty || forGrp.controls['lastName'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="forGrp.controls['lastName'].errors?.['required']">
+                Last Name is required
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">Contact Number : </label>
+            <input class="form-control" id="contactNumber" formControlName="contactNumber" name="contactNumber"
+                style="padding-bottom: 10px" maxlength=10 placeholder="Enter your Contact Number" required />
+        </div>
+        <div *ngIf="forGrp.controls['contactNumber'].invalid && (forGrp.controls['contactNumber'].dirty || forGrp.controls['contactNumber'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="forGrp.controls['contactNumber'].errors?.['required']">
+                Contact Number is required
+            </div>
+            <div *ngIf="forGrp.controls['contactNumber'].errors?.['pattern']">
+                Please Enter 10 digit mobile number!!
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">EmailId : </label>
+            <input class="form-control" id="emailId" formControlName="emailId" name="emailId"
+                style="padding-bottom: 10px" placeholder="Enter your Email id" required />
+        </div>
+        <div *ngIf="forGrp.controls['emailId'].invalid && (forGrp.controls['emailId'].dirty || forGrp.controls['emailId'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="forGrp.controls['emailId'].errors?.['required']">
+                Email is required.
+            </div>
+            <div *ngIf="forGrp.controls['emailId'].errors?.['email']">
+                Please enter a valid email.
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">What is your faviourate place? </label>
+            <input class="form-control" id="securityQuestion" formControlName="securityQuestion" name="securityQuestion"
+                style="padding-bottom: 10px" placeholder="Enter your security question answer" required />
+        </div>
+        <div *ngIf="forGrp.controls['securityQuestion'].invalid && (forGrp.controls['securityQuestion'].dirty || forGrp.controls['securityQuestion'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="forGrp.controls['securityQuestion'].errors?.['required']">
+            Security answer is required
+        </div>
+    </div>
+
+
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">Password : </label>
+            <input class="form-control" id="password" formControlName="password" name="password"
+                style="padding-bottom: 10px" type="password" placeholder="Enter your password" required />
+        </div>
+        <div *ngIf="forGrp.controls['password'].invalid && (forGrp.controls['password'].dirty || forGrp.controls['password'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="forGrp.controls['password'].errors?.['required']">
+                Password is Required
+            </div>
+            <div *ngIf="forGrp.controls['password'].errors?.['minlength']">
+                Password length should be above 5 Characters
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px">
+            <label style="font-size: 25px;">Confirm Password : </label>
+            <input class="form-control" id="confirmPassword" formControlName="confirmPassword" name="confirmPassword"
+                style="padding-bottom: 10px" type="password" placeholder="Re-enter your password" required />
+        </div>
+        <div *ngIf="forGrp.controls['confirmPassword'].getError('Mushmatch')!=null" class="alert alert-danger">Confirm
+            Password Mismatch</div>
+
+
+
+        <button style="padding: 10px;" class="btn btn-primary w-100" type="button" (click)="onSubmit()"
+            [disabled]="forGrp && forGrp.invalid">Submit</button>
+
+    </form>
+</div>
+<router-outlet></router-outlet>

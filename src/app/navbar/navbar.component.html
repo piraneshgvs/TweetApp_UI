@@ -1,0 +1,47 @@
+
+  <div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+      <div style="color: white; padding-left: 70px;font-size: 30px; font-weight: 1000;">
+       Tweet App
+      </div>
+      <div class="navbar-collapse collapse" id="collapsingNavbar" style="justify-content:flex-end;padding-right:70px;">
+        <form [formGroup]="forGrp!" *ngIf=loggedIn() class="form-inline my-2 my-lg-0" style="padding-right: 100px;">
+          <input class="form-control" formControlName="search" type="search" placeholder="Search User" aria-label="Search" size="50" (keyup.enter)=searchUser()>
+        </form>
+        <ul *ngIf=loggedIn() class="navbar-nav">
+            <li class = "nav-item">
+                <a routerLink="/alltweet" routerLinkActive="active" class="nav-link" style="font-size: 20px;">All Tweets</a>
+            </li>
+            <li class = "nav-item">
+                <a routerLink="/mytweet" routerLinkActive="active" class="nav-link" style="font-size: 20px;">My Tweets</a>
+            </li>
+           
+            <li *ngIf="loggedIn()" ngbDropdown class="nav-item dropdown">
+              <a *ngIf="userId" ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px;">
+                {{userId}}
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a  class="dropdown-item" routerLink="/myprofile" style="font-size: 20px;">My Profile</a>
+                  <a  class="dropdown-item" routerLink="/login" (click)="clearSession()" style="font-size: 20px;">logout</a>
+              </div>
+            </li>
+     
+            <li class = "nav-item">
+               
+            </li>
+        </ul>
+        <ul *ngIf=!loggedIn() class="navbar-nav">
+          <li class = "nav-item">
+              <a routerLink="/login" routerLinkActive="active" class="nav-link" style="font-size: 20px;">Login</a>
+          </li>
+          <li class = "nav-item">
+              <a routerLink="/register" routerLinkActive="active" class="nav-link" style="font-size: 20px;">Register</a>
+          </li>
+      </ul>
+      </div>
+      </nav>
+      <div *ngIf="searchList">
+       <app-search [msg]="searchList"></app-search>
+      </div>
+   
+  <router-outlet></router-outlet>

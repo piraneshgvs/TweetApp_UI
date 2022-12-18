@@ -1,0 +1,19 @@
+
+<div style="text-align: center;padding-top: 15px;">
+    <h1><b>Update your thoughts!!!</b></h1>
+<form [formGroup]="forGrp!">
+    <div>
+    <textarea [(ngModel)]="routerParam" formControlName="tweet"  name="tweet" rows="15" cols="100" placeholder="Enter your tweet" maxlength="144" ></textarea><br>
+</div>
+<div *ngIf="forGrp.controls['tweet'].invalid && (forGrp.controls['tweet'].dirty || forGrp.controls['tweet'].touched)"
+class="alert alert-danger">
+<div *ngIf="forGrp.controls['tweet'].errors?.['required']">
+    Tweet content is required
+</div>
+<div *ngIf="forGrp.controls['tweet'].errors?.['minlength']||forGrp.controls['tweet'].errors?.['maxlength']">
+    Tweet should be atleast 5 to 144 characters
+</div>
+</div>
+    <button type="button" class="btn btn-primary btn-lg btn-block" style="padding-left: 280px;padding-right: 280px;" (click)="onSubmit()" [disabled]="forGrp && forGrp.invalid">Update My Tweet</button>
+</form>
+</div>
