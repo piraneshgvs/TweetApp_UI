@@ -37,7 +37,7 @@ export class ResetPasswordComponent {
 
   onSubmit(){
     this.password = this.forGrp?.get('password')?.value;
-    console.log(this.token);
+    console.log(this.userName);
     this.tweetAppService.resetPasswordRequest(this.token, this.userName, this.password).subscribe({
       next:(data)=>{
         if(data.message="Password updated successfully")

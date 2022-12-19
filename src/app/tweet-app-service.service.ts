@@ -89,10 +89,16 @@ export class TweetAppServiceService {
 
   searchUsers(token : string, userId : string, search : string):Observable<any>{
     var headers = new HttpHeaders().append("Authorization", "Bearer " + token);
+    console.log("service"+token)
     headers.append('Content-Type', 'application/json');
     const params = new HttpParams()
     .set('userId',userId);
     return this.http.get("http://localhost:8081/api/v1.0/tweets/search/userId/"+search,{params,headers:headers});
+  }
+
+ logoutLogging(token : string, userId : string):Observable<any>{
+    var headers = new HttpHeaders().append("Authorization", "Bearer " + token);
+    return this.http.patch("http://localhost:8081/api/v1.0/tweets/logout/"+userId,{},{headers:headers});
   }
 
 }

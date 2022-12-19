@@ -51,5 +51,8 @@
       <hr>
       </div>
     </div>
+    <div *ngIf="tweetTable&&tweetTable.length==0" style="padding-top: 8%;">
+      <h5 style="text-align: center; color: red;font-size: 25px;">Not Tweets Found</h5>
+    </div>
     
 

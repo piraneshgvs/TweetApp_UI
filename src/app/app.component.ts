@@ -9,9 +9,14 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'TweetApp_UI';
 
-  constructor (private router : Router){}
+  statusok !: string;
+
+  constructor (private router : Router){
+   
+  }
 
   token !: string;
+  data !: string[];
 
   newtweet(){
       this.router.navigate(["/newtweet"]);
@@ -23,5 +28,18 @@ export class AppComponent {
     return true;
     }
     return false;
+  }
+
+  status(){
+    this.statusok = sessionStorage.getItem("key")!;
+    if(this.statusok){
+      return true;
+    }
+    return false;
+  }
+
+  handleResults(searchObj : string[]){
+    this.data = searchObj;
+    
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TweetAppServiceService } from '../tweet-app-service.service';
 import { TweetTable } from '../tweet-table';
 
@@ -17,15 +17,26 @@ export class AlltweetComponent {
   panelOpenState = false;
   likeChange!: true;
   token !: string;
+  searchTweet !: TweetTable[];
+  errorMessage !: string;
 
-  constructor(private tweetAppService: TweetAppServiceService, private router: Router) {
+  constructor(private tweetAppService: TweetAppServiceService, private router: Router, private activatedRoute : ActivatedRoute) {
 
   }
 
 
   ngOnInit(): void {
+    try {
+      this.searchTweet = JSON.parse(this.activatedRoute.snapshot.params["data"]);
+    } catch (error) {
+      this.errorMessage = "No Tweets Found"
+    }
+   
     if (!sessionStorage.getItem("userId") && !sessionStorage.getItem("token")) {
       this.router.navigate(["/login"])
+    }
+    else if(this.searchTweet!=null){
+      this.tweetTable = this.searchTweet;
     }
     else {
       this.token = sessionStorage.getItem("token")!;
@@ -37,6 +48,9 @@ export class AlltweetComponent {
   getTweets() {
     this.tweetAppService.getAllTweets(this.token, this.userName).subscribe((data) => {
       console.log(data);
+      if(data==null){
+        this.errorMessage="No Tweets Found"
+      }
       this.tweetTable = data;
     })
 

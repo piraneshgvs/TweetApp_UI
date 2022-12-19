@@ -37,7 +37,7 @@ export class ForgotpasswordComponent {
       next:(data)=>{
         console.log(data);
         if(data.jwttoken!="Not a valid Request"){
-        sessionStorage.setItem("userName",this.forgotPassword.userName);
+        sessionStorage.setItem("userId",this.forgotPassword.userName);
         sessionStorage.setItem("f-token",data.jwttoken);
         this.router.navigate(["/resetPassword"]);
         }

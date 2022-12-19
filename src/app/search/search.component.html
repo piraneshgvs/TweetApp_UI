@@ -1,6 +1,18 @@
-<div *ngIf="msg" style="padding-top: 10%;">
-    <div *ngFor="let ms of msg">
-        <p>{{ms}}</p>
-    </div>
+<div *ngIf="msg" style="padding-top: 5%;">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" style="text-align: center; font-size: 20px;">Search Results</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let m of msg">
+            <td style="text-align: center; font-size: 20px;"><a (click)="userTweets(m)">{{m}}</a></td>
+          </tr>
+        </tbody>
+      </table>
 
 </div>
+<div *ngIf="msg&&msg.length==0" style="padding-top: 8%;">
+    <h5 style="text-align: center; color: red;font-size: 25px;">Not Users Found</h5>
+  </div>

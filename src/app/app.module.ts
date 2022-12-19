@@ -27,6 +27,7 @@ import { SearchComponent } from './search/search.component';
 const router : Routes =[
   {path: "mytweet", component: MytweetComponent},
   {path: "alltweet", component: AlltweetComponent},
+  {path: "alltweet/:data", component: AlltweetComponent},
   {path: "myprofile", component: MyprofileComponent},
   {path: "replytweet/:tweet", component: ReplytweetComponent},
   {path: "newtweet", component: NewTweetComponent},
