@@ -1,5 +1,5 @@
 <div *ngIf="tweetTable" style="padding-top: 8%;">
-<div *ngFor="let tweet of tweetTable.reverse()" style="padding-left: 20%;padding-right: 20%;">
+<div *ngFor="let tweet of tweetTable" style="padding-left: 20%;padding-right: 20%;">
     <div class="container-sm" style="background-color: rgba(50, 196, 233, 0.178);">
         <div style="text-align: left;">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div *ngIf="tweetTable&&tweetTable.length==0" style="padding-top: 8%;">
-      <h5 style="text-align: center; color: red;font-size: 25px;">Not Tweets Found</h5>
+      <h5 style="text-align: center; color: red;font-size: 25px;">No Tweets Found</h5>
     </div>
     
 

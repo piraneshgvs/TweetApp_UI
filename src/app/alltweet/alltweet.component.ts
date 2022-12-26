@@ -66,6 +66,9 @@ export class AlltweetComponent {
   }
 
   likeUpdate(tweet: any) {
+    this.token = sessionStorage.getItem("token")!;
+    this.userName = sessionStorage.getItem("userId")!;
+    console.log(this.userName);
     this.tweetAppService.likeUserUpdate(this.userName, tweet.tweetId, this.token).subscribe((data) => {
       console.log(data);
       this.tweetTable = data;

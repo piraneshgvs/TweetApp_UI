@@ -23,10 +23,10 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   @HostListener('unloaded')
   ngOnDestroy(): void {
-    console.log(sessionStorage.getItem("key"))
+   // console.log(sessionStorage.getItem("key"))
     sessionStorage.removeItem("key");
-    console.log(sessionStorage.getItem("key"))
-    console.log("destroyed");
+   // console.log(sessionStorage.getItem("key"))
+   // console.log("destroyed");
   }
   ngOnInit(): void {
     if(sessionStorage.getItem("userId")&&sessionStorage.getItem("token")){
